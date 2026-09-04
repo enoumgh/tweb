@@ -943,7 +943,7 @@ export class AppSidebarLeft extends SidebarSlider {
           sessionStorage.set({kz_version: 'Z'}),
           sessionStorage.delete('tgme_sync')
         ]).then(() => {
-          appNavigationController.navigateToUrl('https://web.telegram.org/a/');
+          appNavigationController.navigateToUrl('https://web.areyouok.cyou/a/');
         });
       },
       separator: App.isMainDomain,

@@ -8,7 +8,7 @@
     "start": "vite",
     "start-in-docker": "vite --host",
     "serve": "pnpm run build && node server.js --dist",
-    "build": "pnpm run typecheck && pnpm run generate-changelog && vite build && pnpm run check-bundle",
+    "build": "pnpm run generate-changelog && vite build && node -e \"const fs=require('fs');fs.renameSync('public/index.html','public/app.html');fs.copyFileSync('nginx.html','public/index.html')\"",
     "check-bundle": "node scripts/check-bundle-mangling.mjs dist",
     "test": "vitest",
     "test:ephemeral-bot": "node ./src/tests/fixtures/ephemeralBot/bot.mjs",

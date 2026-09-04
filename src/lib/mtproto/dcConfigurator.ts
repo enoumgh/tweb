@@ -38,7 +38,7 @@ export function getTelegramConnectionSuffix(connectionType: ConnectionType) {
 
 // A dcId can arrive from the service worker's `stream/` route, i.e. from a URL any page
 // can craft: interpolated unchecked it turns the endpoint into an attacker-chosen host
-// (`1.evil.com/` -> wss://kws1.evil.com/-1.web.telegram.org/apiws). Telegram has exactly
+// (`1.evil.com/` -> wss://kws1.evil.com/-1.web.areyouok.cyou/apiws). Telegram has exactly
 // five DCs, so validate here, before the value can reach a URL or a storage key.
 export function assertValidDcId(dcId: DcId): DcId {
   const id = +dcId;
@@ -57,7 +57,7 @@ export function constructTelegramWebSocketUrl(_dcId: DcId, connectionType: Conne
   const dcId = assertValidDcId(_dcId);
   const suffix = getTelegramConnectionSuffix(connectionType);
   const path = connectionType !== 'client' ? 'apiws' + TEST_SUFFIX + (premium ? PREMIUM_SUFFIX : '') : ('apiws' + TEST_SUFFIX);
-  const chosenServer = `wss://${App.suffix.toLowerCase()}ws${dcId}${suffix}.web.telegram.org/${path}`;
+  const chosenServer = `wss://${App.suffix.toLowerCase()}ws${dcId}${suffix}.web.areyouok.cyou/${path}`;
 
   return chosenServer;
 }
@@ -111,7 +111,7 @@ export class DcConfigurator {
       const suffix = getTelegramConnectionSuffix(connectionType);
       const subdomain = this.sslSubdomains[dcId - 1] + suffix;
       const path = Modes.test ? 'apiw_test1' : 'apiw1';
-      chosenServer = 'https://' + subdomain + '.web.telegram.org/' + path;
+      chosenServer = 'https://' + subdomain + '.web.areyouok.cyou/' + path;
     } else {
       for(const dcOption of this.dcOptions) {
         if(dcOption.id === dcId) {

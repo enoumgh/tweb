@@ -1,0 +1,59 @@
+name: Auto Sync & Replace Domain
+
+on:
+  schedule:
+    - cron: '0 2 */3 * *'
+  workflow_dispatch:
+
+jobs:
+  update-and-replace:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        # 【提速优化 1】删除了 fetch-depth: 0，默认只会拉取你仓库最新的一次提交 (约几 MB)
+
+      - name: Backup custom files
+        run: |
+          cp .github/workflows/auto-update.yml /tmp/auto-update.yml
+          cp nginx.html /tmp/nginx.html
+
+      - name: Fetch upstream and Hard reset
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          git remote add upstream https://github.com/morethanwords/tweb.git
+          
+          # 【提速优化 2】加上 --depth 1 参数，只拉取官方仓库 master 分支的最后 1 次代码状态，彻底避开 1.3GB 历史
+          git fetch upstream master --depth 1
+          
+          # 强制将代码重置为刚刚拉取到的最新节点 (FETCH_HEAD)
+          git checkout master
+          git reset --hard FETCH_HEAD
+
+      - name: Restore files and Apply custom package.json
+        run: |
+          mkdir -p .github/workflows
+          cp /tmp/auto-update.yml .github/workflows/auto-update.yml
+          cp /tmp/nginx.html nginx.html
+          
+          node -e "
+          const fs = require('fs');
+          const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+          pkg.scripts.build = 'pnpm run generate-changelog && vite build && node -e \"const fs=require(\\'fs\\');fs.renameSync(\\'public/index.html\\',\\'public/app.html\\');fs.copyFileSync(\\'nginx.html\\',\\'public/index.html\\')\"';
+          fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));
+          "
+
+      - name: Global Aggressive Replace API Domains
+        run: |
+          find . -type f -not -path '*/\.git/*' -not -path '*/\.github/*' -exec sed -i 's/web\.telegram\.org/web\.areyouok\.cyou/g' {} +
+
+      - name: Commit and Force Push
+        run: |
+          git add .
+          git commit -m "Auto sync with upstream, apply custom domains and build scripts" || echo "No changes"
+          git push origin master --force

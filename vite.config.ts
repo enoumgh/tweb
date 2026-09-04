@@ -36,8 +36,8 @@ const handlebarsPlugin = handlebars({
   context: {
     title: 'Telegram Web',
     description: 'Telegram is a cloud-based mobile and desktop messaging app with a focus on security and speed.',
-    url: 'https://web.telegram.org/k/',
-    origin: 'https://web.telegram.org/'
+    url: 'https://web.areyouok.cyou/k/',
+    origin: 'https://web.areyouok.cyou/'
   }
 });
 
@@ -46,11 +46,11 @@ const USE_SIGNED_CERTS = USE_SSL && true;
 const USE_SELF_SIGNED_CERTS = USE_SSL && false;
 
 // * mkdir certs; cd certs
-// * mkcert web.telegram.org
-// * chmod 644 web.telegram.org-key.pem
+// * mkcert web.areyouok.cyou
+// * chmod 644 web.areyouok.cyou-key.pem
 // * nano /etc/hosts
-// * 127.0.0.1 web.telegram.org
-const host = USE_SSL ? 'web.telegram.org' : 'localhost';
+// * 127.0.0.1 web.areyouok.cyou
+const host = USE_SSL ? 'web.areyouok.cyou' : 'localhost';
 
 // HTTP/2 for `pnpm start`. Vite serves dev modules unbundled — one request per module —
 // and over http/1.1 the browser's ~6-connections-per-origin cap serialises the hundreds
