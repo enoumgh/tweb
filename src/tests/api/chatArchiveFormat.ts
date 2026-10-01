@@ -77,7 +77,7 @@ export function parsePeerSpec(input: string): PeerSpec {
   const privateLink = s.match(/t\.me\/c\/(\d+)/i);
   if(privateLink) return {kind: 'channel', id: privateLink[1]};
 
-  // web.telegram.org/k/#-123 / #@name, t.me/name
+  // web.areyouok.cyou/k/#-123 / #@name, t.me/name
   s = s.replace(/^https?:\/\//i, '').replace(/^web\.telegram\.org\/[a-z]\/#?/i, '').replace(/^#/, '');
   const tme = s.match(/^(?:t\.me|telegram\.me)\/([A-Za-z0-9_]+)/i);
   if(tme) return {kind: 'username', username: tme[1]};

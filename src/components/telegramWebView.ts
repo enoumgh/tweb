@@ -62,7 +62,7 @@ export default class TelegramWebView extends EventListenerBase<{
     weakMap.set(this.iframe.contentWindow, this);
     if(this.html) {
       // ! never write into contentWindow.document — a no-src iframe inherits this origin,
-      // ! which would run the embedded third-party scripts as web.telegram.org
+      // ! which would run the embedded third-party scripts as web.areyouok.cyou
       this.iframe.srcdoc = this.html;
     }
   }
