@@ -18,7 +18,7 @@ auth keys, and feed them to the harness as a JSON seed.
 
 ## Producing a seed
 
-Open `https://web.telegram.org/k/?test=1` (test DC) or `https://web.telegram.org/k/`,
+Open `https://web.areyouok.cyou/k/?test=1` (test DC) or `https://web.areyouok.cyou/k/`,
 log in, then run this snippet in DevTools console:
 
 ```js

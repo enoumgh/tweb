@@ -37,7 +37,7 @@ describe('chat archive format', () => {
   test('parses every way a peer is named', () => {
     expect(parsePeerSpec('-1001234567890')).toEqual({kind: 'channel', id: '1234567890'});
     expect(parsePeerSpec('-1234567890')).toEqual({kind: 'chatOrChannel', id: '1234567890'});
-    expect(parsePeerSpec('https://web.telegram.org/k/#-1234567890')).toEqual({kind: 'chatOrChannel', id: '1234567890'});
+    expect(parsePeerSpec('https://web.areyouok.cyou/k/#-1234567890')).toEqual({kind: 'chatOrChannel', id: '1234567890'});
     expect(parsePeerSpec('https://t.me/c/1234567890/55')).toEqual({kind: 'channel', id: '1234567890'});
     expect(parsePeerSpec('t.me/durov')).toEqual({kind: 'username', username: 'durov'});
     expect(parsePeerSpec('@durov')).toEqual({kind: 'username', username: 'durov'});

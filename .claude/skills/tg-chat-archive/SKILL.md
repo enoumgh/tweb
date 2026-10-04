@@ -53,7 +53,7 @@ bash .claude/skills/tg-chat-archive/archive.sh <peer> [--dry] [--full] [--since 
 | Form | Example | Meaning |
 |---|---|---|
 | Bot API channel id | `-1001234567890` | supergroup / channel |
-| negative id | `-1234567890` | tweb URL hash (`web.telegram.org/k/#-1234567890`) or a basic group — both are tried |
+| negative id | `-1234567890` | tweb URL hash (`web.areyouok.cyou/k/#-1234567890`) or a basic group — both are tried |
 | positive id | `777000` | private chat with a user or bot |
 | username / link | `@name`, `t.me/name`, `https://t.me/c/1234567890/55` | public chat, or a private channel post link |
 | `me` | `me` | Saved Messages |

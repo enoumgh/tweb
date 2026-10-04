@@ -11,13 +11,13 @@ You can see the full list of new features and improvements here: https://t.me/We
 You can see the full list of new features and improvements here: https://t.me/WebK_en/11
 
 ### 1.7.0 (273)
-🎄 Happy New Year to everyone! [WebK](http://web.telegram.org/k) launched its first update of 2023, adding a pack of features you can now enjoy on Web!
+🎄 Happy New Year to everyone! [WebK](http://web.areyouok.cyou/k) launched its first update of 2023, adding a pack of features you can now enjoy on Web!
 
 📚 [Topics 2.0](https://telegram.org/blog/ultimate-privacy-topics-2-0#topics-2-0)
 Admins of **any group** can enable Topics, creating separate spaces within the group to discuss different subjects – with a sleek **two-column layout** to easily navigate chats.
 
 😶‍🌫️ [Hidden Media](https://telegram.org/blog/hidden-media-zero-storage-profile-pics#hidden-media) 
-Media hidden with a shimmering spoiler effect is properly displayed in the app – just tap or click to view the image. The next [WebK](http://web.telegram.org/k) update will allow you to send media with this spoiler effect.
+Media hidden with a shimmering spoiler effect is properly displayed in the app – just tap or click to view the image. The next [WebK](http://web.areyouok.cyou/k) update will allow you to send media with this spoiler effect.
 
 🏴‍☠️ [No-SIM Signup and Login](https://telegram.org/blog/ultimate-privacy-topics-2-0#sign-up-without-a-sim-card) 
 Users who have an **anonymous number** from [Fragment](https://fragment.com/numbers) can login to their existing account or create a **new account** with the number.
@@ -28,7 +28,7 @@ Owners of collectible usernames can now **assign collectibles** to their persona
 Lastly, the app also preserves your **history stack** – if you follow a [t.me](https://t.me) link to another message in a chat, you can return to the **first message** with the 🔽 button.
 
 ### 1.6.0 (244)
-Today, [WebK](https://web.telegram.org/k) introduces a redesigned **Emoji and Sticker Panel** – try the **collapsible section** for default emoji categories and the **scrollable bar** for your custom emoji sets.
+Today, [WebK](https://web.areyouok.cyou/k) introduces a redesigned **Emoji and Sticker Panel** – try the **collapsible section** for default emoji categories and the **scrollable bar** for your custom emoji sets.
 
 The new Panel features a beautiful blur effect on most desktop browsers and allows you to **send** or **edit** messages containing custom emoji. __(All users can try out this feature in their Saved Messages)__ 
 
