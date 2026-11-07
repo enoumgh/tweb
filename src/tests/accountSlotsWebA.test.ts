@@ -1,4 +1,4 @@
-// * Web A (web.telegram.org/a) keeps its accounts in the same slots of localStorage (`account${n}`): switching
+// * Web A (web.areyouok.cyou/a) keeps its accounts in the same slots of localStorage (`account${n}`): switching
 // * between the versions keeps the accounts signed in only while both read what the other one writes there
 const storage = vi.hoisted(() => {
   const values: Record<string, any> = {};

@@ -70,7 +70,7 @@ const startWorker = async() => {
 };
 
 const fetchFrom = (client: {id: string}) => (self as any).onfetch({
-  request: {url: 'https://web.telegram.org/k/stream/%7B%7D', mode: 'cors', headers: new Headers()},
+  request: {url: 'https://web.areyouok.cyou/k/stream/%7B%7D', mode: 'cors', headers: new Headers()},
   clientId: client.id,
   respondWith: () => {}
 });

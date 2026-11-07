@@ -2,7 +2,7 @@
 
 ## Supported versions
 
-Only the current version gets security fixes: the client served at https://web.telegram.org/k/, built from
+Only the current version gets security fixes: the client served at https://web.areyouok.cyou/k/, built from
 `master`.
 
 ## Reporting a vulnerability

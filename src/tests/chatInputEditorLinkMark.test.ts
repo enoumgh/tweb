@@ -49,7 +49,7 @@ describe('chat input editor link mark', () => {
     expect(linkedText(editor)).toEqual(['probe:linked', 'tail:plain']);
   });
 
-  test.each(['file:///etc/passwd', 'blob:https://web.telegram.org/1234'])(
+  test.each(['file:///etc/passwd', 'blob:https://web.areyouok.cyou/1234'])(
     'drops a pasted link with href %s',
     (href) => {
       const editor = parse(`<p><a href="${href}">probe</a></p>`);
