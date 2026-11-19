@@ -767,7 +767,7 @@ export default class WalletSession {
   private async getSigningKey(lifecycle: WalletLifecycle, descriptor: WalletDescriptor) {
     const signature = await lifecycle.signTonConnectProof({
       descriptor,
-      domain: 'web.telegram.org',
+      domain: 'web.areyouok.cyou',
       timestamp: Math.floor(Date.now() / 1000),
       payload: 'wallet-key-check'
     });

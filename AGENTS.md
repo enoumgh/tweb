@@ -6,7 +6,7 @@ file — edit AGENTS.md, never CLAUDE.md.
 
 ## Project Overview
 
-**tweb** is a full-featured Telegram web client (https://web.telegram.org/k/) built with Solid.js and TypeScript. It implements Telegram's MTProto protocol directly in the browser (no third-party API wrappers). The codebase is large (~100k+ lines excluding vendor), mature, and highly performance-oriented.
+**tweb** is a full-featured Telegram web client (https://web.areyouok.cyou/k/) built with Solid.js and TypeScript. It implements Telegram's MTProto protocol directly in the browser (no third-party API wrappers). The codebase is large (~100k+ lines excluding vendor), mature, and highly performance-oriented.
 
 Author: Eduard Kuzmenko. License: GPL v3.
 

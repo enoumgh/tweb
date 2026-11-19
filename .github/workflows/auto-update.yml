@@ -1,0 +1,63 @@
+
+name: Auto Sync & Replace Domain
+
+on:
+  schedule:
+    - cron: '0 2 */3 * *'
+  workflow_dispatch:
+
+jobs:
+  update-and-replace:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.SYNC_TOKEN }}
+          persist-credentials: true
+
+      - name: Backup custom files
+        run: |
+          cp .github/workflows/auto-update.yml /tmp/auto-update.yml
+          cp nginx.html /tmp/nginx.html
+
+      - name: Fetch upstream and Hard reset
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          git remote add upstream https://github.com/morethanwords/tweb.git
+
+          git fetch upstream master --depth 1
+
+          git checkout master
+          git reset --hard FETCH_HEAD
+
+      - name: Restore files and Apply custom package.json
+        run: |
+          mkdir -p .github/workflows
+          cp /tmp/auto-update.yml .github/workflows/auto-update.yml
+          cp /tmp/nginx.html nginx.html
+
+          # 删除不需要的上游安全审查工作流
+          rm -f .github/workflows/push-review.yml
+
+          node -e "
+          const fs = require('fs');
+          const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+          pkg.scripts.build = 'pnpm run generate-changelog && vite build && node -e \"const fs=require(\\'fs\\');fs.renameSync(\\'public/index.html\\',\\'public/app.html\\');fs.copyFileSync(\\'nginx.html\\',\\'public/index.html\\')\"';
+          fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));
+          "
+
+      - name: Global Aggressive Replace API Domains
+        run: |
+          find . -type f -not -path '*/\.git/*' -not -path '*/\.github/*' -exec sed -i 's/web\.telegram\.org/web\.areyouok\.cyou/g' {} +
+
+      - name: Commit and Force Push
+        run: |
+          git add .
+          git commit -m "Auto sync with upstream, apply custom domains and build scripts" || echo "No changes"
+          git push origin master --force
