@@ -2,7 +2,7 @@
 
 ## What Telegram Web K is and where untrusted input enters
 
-Telegram Web K is the Telegram web client served at https://web.telegram.org/k/, written in TypeScript with Solid.js
+Telegram Web K is the Telegram web client served at https://web.areyouok.cyou/k/, written in TypeScript with Solid.js
 (a fork in `src/vendor/solid/`). It speaks MTProto 2.0 to Telegram's servers itself, from a SharedWorker
 (`src/lib/mtproto/`, `src/lib/crypto/`, `src/lib/mainWorker/`). It keeps the session and its cache in the browser:
 the auth keys in localStorage (`src/lib/sessionStorage.ts`), state in IndexedDB (`src/lib/storages/`), media in
@@ -11,7 +11,7 @@ CacheStorage (`src/lib/files/`). A ServiceWorker streams media and handles the W
 `src/components/`. Paths below are relative to `src/`.
 
 Script that runs in the client's origin owns the account: it can read the auth keys and act as the user. The origin is
-shared with the other Telegram web client at `web.telegram.org/a/`, so it owns that client's session too.
+shared with the other Telegram web client at `web.areyouok.cyou/a/`, so it owns that client's session too.
 
 The main attacker is any other Telegram user, bot or channel. Anyone can message the victim, add them to a group or
 post in a channel they read. Everything such a party controls is untrusted, even though it arrives from Telegram's
@@ -79,7 +79,7 @@ Out of scope:
 * vendored code in `src/vendor/`, unless content from Telegram reaches the bug. Then name the upstream project;
 * the popup sandbox (`components/popupSandbox/`), which only dev builds contain, and other dev tooling;
 * `src/scripts/`, `scripts/`, `src/tests/`, `e2e/`, `server.js` and the `.docker/` files;
-* the headers web.telegram.org is served with (CSP, framing), which are not in this repository.
+* the headers web.areyouok.cyou is served with (CSP, framing), which are not in this repository.
 
 ## How to exercise it
 
@@ -114,7 +114,7 @@ Out of scope:
 ## Anything to leave alone
 
 * `VITE_API_ID` and `VITE_API_HASH` in `.env`, which are public by design.
-* Missing or weak security headers on web.telegram.org: the server sets them, not this code.
+* Missing or weak security headers on web.areyouok.cyou: the server sets them, not this code.
 * Self-XSS through the developer console, and attacks by someone who already controls the browser, its profile or an
   extension.
 * Memory leaks without a security impact.

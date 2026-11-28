@@ -183,7 +183,7 @@ const FRAGMENT_HREF_RE = /^(?:[a-z]+:\/\/)?(#[^#?]+)$/i;
 // An embed block carries third-party provider markup (GitHub Gist, Twitter, YouTube, ...).
 // Without a sandbox the frame keeps every capability it is given by default, and an
 // `html` embed additionally inherits this origin, so its scripts would run as
-// web.telegram.org with access to the parent document and its storage.
+// web.areyouok.cyou with access to the parent document and its storage.
 // No `allow-modals`: a frame's alert() stops the whole tab until it is answered, and a loop of them
 // never lets it go — an embed's markup is whatever its sender wrote.
 const EMBED_SANDBOX_ATTRIBUTES = [

@@ -3,7 +3,7 @@ import DeferredIsUsingPasscode from '@lib/passcode/deferredIsUsingPasscode';
 
 // * A stand-in for the browser's CacheStorage that finds an entry the way a browser does: by the
 // * request's URL, resolved against the worker's own (dot segments, `\`, tabs and the fragment included).
-const BASE_URL = 'https://web.telegram.org/k/mtproto.worker.js';
+const BASE_URL = 'https://web.areyouok.cyou/k/mtproto.worker.js';
 const stores = new Map<string, Map<string, string>>();
 
 function getRequestKey(request: RequestInfo | URL) {
